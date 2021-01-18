@@ -1,10 +1,17 @@
 from core.celery import app
-from .models import CustomUserProfile
+
+from django.core.mail import send_mail
+
+from time import sleep
 
 
 @app.task
-def add():
-    x = 5
-    y = 6
-    return x * y
-
+def send_email_task():
+    send_mail(
+        'Subject here',
+        'Here is the message.',
+        'olegkoshelev20005@mail.ru',
+        ['olegkoshelev20005@mail.ru'],
+        fail_silently=False,
+    )
+    return None

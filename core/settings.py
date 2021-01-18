@@ -28,7 +28,7 @@ SECRET_KEY = 'vo861uuxr03&q6ujo&t=n2*ruka#7+(io@v9nqe=it$+a&%_o2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
 
 
 # Application definition
@@ -184,7 +184,6 @@ DJOSER = {
 # Redis settings
 REDIS_HOST = '0.0.0.0'
 REDIS_PORT = '6379'
-# CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
 CELERY_BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
 CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
