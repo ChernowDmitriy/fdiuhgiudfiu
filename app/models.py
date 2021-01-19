@@ -57,3 +57,4 @@ class CustomUserProfile(AbstractBaseUser, PermissionsMixin):
 class FixLogIn(models.Model):
     email = models.EmailField(max_length=255)
     last_login = models.DateTimeField('last login', blank=True, null=True)
+    is_expired = models.BooleanField(default=False)
