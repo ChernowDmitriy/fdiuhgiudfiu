@@ -21,9 +21,9 @@ def debug_task(self):
 
 
 app.conf.beat_schedule = {
-    'add-every-10-seconds': {
-        'task': 'app.tasks.send_email_task',
-        'schedule': crontab(minute=60),
+    'check-login-every-1-hour': {
+        'task': 'app.tasks.check_date',
+        'schedule': crontab(hour=1),
     },
 }
-app.conf.timezone = 'UTC'
+app.conf.timezone = 'Europe/Moscow'

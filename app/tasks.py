@@ -2,16 +2,25 @@ from core.celery import app
 
 from django.core.mail import send_mail
 
-from time import sleep
+from datetime import timedelta, datetime
+
+from .models import FixLogIn
 
 
 @app.task
-def send_email_task():
-    send_mail(
-        'Subject here',
-        'Here is the message.',
-        'olegkoshelev20005@mail.ru',
-        ['olegkoshelev20005@mail.ru'],
-        fail_silently=False,
-    )
-    return None
+def check_date():
+    date = FixLogIn.objects.all()
+    past = datetime.now() - timedelta(days=1)
+    for some_object in date:
+        if past > some_object.last_login:
+            send_mail(
+                'Уважаемый пользователь.',
+                'Ваша сессия истекла. Перезайдите на сайт.',
+                'privetikgoo11232@gmail.com',
+                [some_object.email],
+                fail_silently=False,
+            )
+        else:
+            pass
+
+
