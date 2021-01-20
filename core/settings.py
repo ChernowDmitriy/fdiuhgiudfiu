@@ -85,7 +85,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'core_app',
-        'HOST': 'localhost',
+        'HOST': 'django_db',
         'PORT': 5432,
         'USER': 'postgres',
         'PASSWORD': 'postgres',
@@ -182,7 +182,7 @@ DJOSER = {
 
 
 # Redis settings
-REDIS_HOST = '0.0.0.0'
+REDIS_HOST = 'demo_app_redis'
 REDIS_PORT = '6379'
 CELERY_BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}

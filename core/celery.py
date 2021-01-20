@@ -23,7 +23,7 @@ def debug_task(self):
 app.conf.beat_schedule = {
     'check-login-every-1-hour': {
         'task': 'app.tasks.check_date',
-        'schedule': crontab(minute=0, hour='*/1'),
+        'schedule': crontab(hour='*/1'),
     },
 }
 app.conf.timezone = 'Europe/Moscow'

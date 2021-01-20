@@ -54,7 +54,6 @@ class CustomUserProfile(AbstractBaseUser, PermissionsMixin):
         return self.email
 
 
-class FixLogIn(models.Model):
+class rabotay(models.Model):
     email = models.EmailField(max_length=255)
     last_login = models.DateTimeField('last login', blank=True, null=True)
-    is_expired = models.BooleanField(default=False)
